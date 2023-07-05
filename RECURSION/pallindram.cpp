@@ -15,7 +15,7 @@ bool isPal(string str,int ind){
 
 
 int main() {
-    // Write C++ code here
+   
     bool ans=isPal("abcbda",0);
     cout<<ans;
 
