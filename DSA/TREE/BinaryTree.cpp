@@ -20,10 +20,11 @@ node* buildTree(node* root){
     int data;
     cout<<"Enter Data:";  //4 5 7 -1 -1 8 -1 -1 6 9 -1 -1 10 -1 -1
     cin>>data;
-    root=new node(data);
+   
     if(data==-1){
         return NULL;
     }
+     root=new node(data);
     cout<<"Enter the left child of data "<<data<<endl;
     root->left=buildTree(root->left);
     cout<<"Enter the right child of data "<<data<<endl;
