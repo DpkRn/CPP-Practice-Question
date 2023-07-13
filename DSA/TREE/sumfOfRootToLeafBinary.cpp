@@ -68,7 +68,7 @@
  int getDec(string str){
     return stoi(str,0,2);
  }
-void solve(node* root,int &sum,string str){
+void solve(node* root,int &sum,string &str){
     if(root==NULL)
     return;
     if(root->left==NULL&& root->right==NULL){
@@ -79,6 +79,7 @@ void solve(node* root,int &sum,string str){
     str=str+to_string(root->data);
     solve(root->left,sum,str);
     solve(root->right,sum,str);
+    str.pop_back();
 }
 int getSum(node* root){
     int sum=0;string str;
