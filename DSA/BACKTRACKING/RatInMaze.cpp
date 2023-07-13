@@ -2,52 +2,56 @@
 #include<bits/stdc++.h>
 using namespace std;
 bool isSafe(vector<vector<int>> room,int r,int c,vector<vector<int>> visited,int n){
-    if((r>=0&&r<n)&&(c>=0&&c<n)&&visited[r][c]==0&&room[r][c]==0)
+    if((r>=0&&r<n)&&(c>=0&&c<n)&&(visited[r][c]==0)&&(room[r][c]==0))
     return true;
     else
     return false;
 }
 
-void solve(vector<vector<int>> room,int r,int c,vector<vector<int>> &visited,int &count, int n ){
+void solve(vector<vector<int>> room,int r,int c,vector<vector<int>> &visited,int &count, int n,string str ){
     if(r==n-1&&c==n-1){
-        count++;
+        count=count+1;
+        cout<<str;
+        cout<<endl;
         return;
     }
     visited[r][c]=1;
     //going down 
-    int x,y;
-    x=r+1;
-    y=c;
-    if(isSafe(room,r,c,visited,n)){
-       solve(room,r+1,c,visited,c,n);
+   
+    
+    if(isSafe(room,r+1,c,visited,n)){
+       str+="D";
+       solve(room,r+1,c,visited,count,n,str);
     }
-     x=r;
-    y=c+1;
-     if(isSafe(room,r,c+1,visited,n)){
-       solve(room,r,c+1,visited,c,n);
+    
+     if(isSafe(room,r,c+1,visited,n )){
+        str+="R";
+       solve(room,r,c+1,visited,count,n,str);
     }
-     x=r-1;
-    y=c;
-     if(isSafe(room,r-1,c,visited,n)){
-       solve(room,r-1,c,visited,c,n);
+    
+     if(isSafe(room,r-1,c,visited,n )){
+         str+="U";
+       solve(room,r-1,c,visited,count,n,str);
     }
-     x=r;
-    y=c-1;
+    
      if(isSafe(room,r,c-1,visited,n)){
-       solve(room,r,c-1,visited,c,n);
+         str+="L";
+       solve(room,r,c-1,visited,count,n,str);
     }
     visited[r][c]=0;
     
 }
 int getPath(vector<vector<int>> room,int n){
     int count=0;
-    vector<vector<int>> visited;
+    string str;
+    vector<vector<int>> visited=room;
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             visited[i][j]=0;
         }
     }
-    solve(room,0,0,visited,count,n);
+    solve(room,0,0,visited,count,n,str);
+   
     return count;
 }
 
