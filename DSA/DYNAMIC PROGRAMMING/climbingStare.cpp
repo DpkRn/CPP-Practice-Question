@@ -24,36 +24,64 @@ Explanation: There are three ways to climb to the top.
 
  #include<bits/stdc++.h>
  using namespace std;
-int solve(int n,int &count,map<int,int> &map){
-    if(n<0)
-    return 0;
-    if(n==0){
-   count++;
-    return 1;;
-}
-    if(map[n]>0){
-    count+=map[n];
-    return map[n];
-    }
+// int solve(int n,int &count,map<int,int> &map){
+//     if(n<0)
+//     return 0;
+//     if(n==0){
+//    count++;
+//     return 1;;
+// }
+//     if(map[n]>0){
+//     count+=map[n];
+//     return map[n];
+//     }
     
-    // int l=solve(n-1,count,map);
-    // int r=solve(n-2,count,map);
-    // map[n]=l+r;
-    // return map[n];
-    return map[n]=solve(n-1,count,map)+solve(n-2,count,map);
+//     // int l=solve(n-1,count,map);
+//     // int r=solve(n-2,count,map);
+//     // map[n]=l+r;
+//     // return map[n];
+//     return map[n]=solve(n-1,count,map)+solve(n-2,count,map);
+// }
+
+
+
+
+//  int climbStairs(int n){
+//     map<int,int> map;
+//     int count=0;
+
+//     int ans=solve(n,count,map);
+//     return ans;
+//  }
+//  int main(){
+//  int step;
+//  cout<<"enter step:";
+//  cin>>step;
+//  cout<<"no of ways to climb:"<<climbStairs(step);
+//  return 0;
+//  }
+
+
+
+//in simple case;
+
+
+int solve(int n,vector<int>&dp){
+    if(n==0) return 1;
+    if(n<0)  return 0;
+    
+    if(dp[n]!=-1)
+    return dp[n];
+    return dp[n]=solve(n-1,dp)+solve(n-2,dp);
+
 }
 
- int climbStairs(int n){
-    map<int,int> map;
-    int count=0;
-
-    int ans=solve(n,count,map);
-    return ans;
- }
- int main(){
+int main(){
  int step;
  cout<<"enter step:";
  cin>>step;
- cout<<"no of ways to climb:"<<climbStairs(step);
+ vector<int> dp(step+1,-1);
+ cout<<"no of ways to climb:"<<solve(step,dp);
  return 0;
  }
+
