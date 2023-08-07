@@ -1,7 +1,7 @@
  #include<bits/stdc++.h>
  using namespace std;
  void solve(string str,int index,vector<string> &ans){
-    if(index>=str.length()){
+    if(index==str.length()-1){
         ans.push_back(str);
         return;
     }
@@ -22,6 +22,7 @@
  }
  int main(){
  string str="abc";
+ sort(str.begin(),str.end());
  vector<string> ans=getPermutation(str);
  for(string s:ans){
     cout<<s<<" ";
