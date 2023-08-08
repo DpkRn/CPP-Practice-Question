@@ -66,7 +66,7 @@ node* buildLevelTree(node* root){
     
 }
 void preOrderTraversal(node* root){
-    if(root==NULL||root->data==-1)
+    if(root==NULL)
     return;
     int data=root->data;
     cout<<data<<" ";
@@ -126,12 +126,12 @@ void levelOrderTraversal(node* root){
 int main(){
 node* root=NULL;
 //4 5 7 -1 -1 8 -1 -1 6 9 -1 -1 10 -1 -1
-buildTree(root);
+root=buildTree(root);
 //1 3 5 7 11 10 -1 -1 -1 -1 -1 -1 
 //root =buildLevelTree(root);
 
 cout<<endl<<"PREORDER TRAVERSAL:"<<endl;
-getch();
+//getch();
  preOrderTraversal(root);
 cout<<endl<<"PREORDER TRAVERSAL:"<<endl;
  inOrderTraversal(root);
