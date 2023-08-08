@@ -96,7 +96,7 @@ void postOrderTraversal(node* root){
 
 }
 
-void levelOrderTraversal(node* root){
+void levelOrderTraversalusingNUllAsBreak(node* root){
     queue<node*> q;
     q.push(root);
     q.push(NULL);
@@ -123,6 +123,34 @@ void levelOrderTraversal(node* root){
        
     }
 }
+
+void levelOrderTraversal(node* root){
+    if(root==NULL){
+    cout<<"empty !";
+    return;
+    }
+
+    queue<node*> q;
+    q.push(root);
+    while(!q.empty()){
+        int size=q.size();
+        for(int i=0;i<size;i++){
+            node* frontNode=q.front();
+            q.pop();
+            cout<<frontNode->data<<" ";
+           if(frontNode->left)
+           q.push(frontNode->left);
+           if(frontNode->right)
+           q.push(frontNode->right);
+        }
+        cout<<endl;
+    }
+
+       
+
+}
+
+
 int main(){
 node* root=NULL;
 //4 5 7 -1 -1 8 -1 -1 6 9 -1 -1 10 -1 -1
@@ -137,7 +165,9 @@ cout<<endl<<"PREORDER TRAVERSAL:"<<endl;
  inOrderTraversal(root);
 cout<<endl<<"PREORDER TRAVERSAL:"<<endl;
 postOrderTraversal(root);
-cout<<endl<<"LEVEL ORDER TRAVERSAL"<<endl;
+cout<<endl<<"LEVEL ORDER TRAVERSAL USING NULL"<<endl;
+levelOrderTraversalusingNUllAsBreak(root);
+cout<<endl<<"LEVEL ORDER TRAVERSAL WITHOUT USING NULL"<<endl;
 levelOrderTraversal(root);
 
 return 0;
