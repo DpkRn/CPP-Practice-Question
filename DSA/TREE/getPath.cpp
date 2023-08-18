@@ -56,6 +56,40 @@ return r;
 
 }
 
+//its using backtracking
+
+// void getPathwithoutBacktracking(node* root,vector<int> &ans,vector<int> &path,int n){
+//    if(root==NULL)
+//    return;
+//    if(root->data==n)
+// {   path.push_back(root->data);
+//     ans=path;
+//     return;
+// }
+//    path.push_back(root->data);
+// getPathwithoutBacktracking(root->left,ans,path,n);
+// getPathwithoutBacktracking(root->right,ans,path,n);
+// path.pop_back();
+
+// }
+
+void getPathwithoutBacktracking(node* root,vector<int> &ans,vector<int> path,int n){
+   if(root==NULL)
+   return;
+   if(root->data==n)
+{   path.push_back(root->data);
+    ans=path;
+    return;
+}
+   path.push_back(root->data);
+getPathwithoutBacktracking(root->left,ans,path,n);
+getPathwithoutBacktracking(root->right,ans,path,n);
+
+
+}
+
+
+
 void levelOrderTraversalTactical(node* root){
      queue<node*> q;
     q.push(root);
@@ -82,11 +116,17 @@ void levelOrderTraversalTactical(node* root){
 }
  int main(){
  node* root=NULL;
-    root=buildTree(root);//11 4 14 1 9 12 -1 -1 3 6 -1 -1 -1
+    root=buildTree(root);//4 5 7 -1 -1 8 -1 -1 6 9 -1 -1 10 -1 -1
     cout<<"data traversed into levelOrder"<<endl;
 levelOrderTraversalTactical(root);
 vector<int> ans;
 getPath(root,ans,9);
+cout<<endl;
+for(auto i:ans)
+cout<<i<<" ";
+vector<int> path;
+ans.clear();
+getPathwithoutBacktracking(root,ans,path,9);
 cout<<endl;
 for(auto i:ans)
 cout<<i<<" ";
