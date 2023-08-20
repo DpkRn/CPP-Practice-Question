@@ -1,8 +1,6 @@
  #include<bits/stdc++.h>
  using namespace std;
-void quickSort(int arr[],int low,int high){
-    if(low>=high)
-    return;
+ int partArr(int arr[],int low,int high){
     int pivot=arr[low];
     int i=low;
     int j=high;
@@ -18,8 +16,14 @@ void quickSort(int arr[],int low,int high){
       swap(arr[i],arr[j]);
     }
     swap(arr[low],arr[j]);
-    quickSort(arr,low,j-1);
-    quickSort(arr,i,high);
+    return j;
+ }
+void quickSort(int arr[],int low,int high){
+    if(low>=high)
+    return;
+    int partInd=partArr(arr,low,high);
+    quickSort(arr,low,partInd-1);
+    quickSort(arr,partInd+1,high);
 }
 
  int main(){
