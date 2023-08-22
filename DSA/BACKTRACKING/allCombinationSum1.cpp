@@ -1,33 +1,29 @@
   #include<bits/stdc++.h>
  using namespace std;
-void solve( vector<int> arr,vector<vector<int>> &ans,vector<int> temp,int i,int sum,int target){
-    if(sum>target)
+void solve( vector<int> arr,vector<vector<int>> &ans,vector<int> temp,int i,int target){
+    if(target<0)
     return;
     if(i>=arr.size()){
-        if(sum==target)
+        if(target==0)
         ans.push_back(temp);
         return;
     }
-
     temp.push_back(arr[i]);
-    sum+=arr[i];
-    solve(arr,ans,temp,i+1,sum,target);
+    solve(arr,ans,temp,i+1,target-arr[i]);
     temp.pop_back();
-    sum-=arr[i];
-     solve(arr,ans,temp,i+1,sum,target);
+     solve(arr,ans,temp,i+1,target);
 }
 vector<vector<int>> getComb(vector<int> arr,int target){
    vector<vector<int>> ans;
    vector<int> temp;
    int i=0;
-   int sum=0;
-   solve(arr,ans,temp,i,sum,target);
+   solve(arr,ans,temp,i,target);
    return ans;
 }
 
  int main(){
- vector<int> v={1,1,2,2,1,1};
- int target=4;
+ vector<int> v={2,3,5};
+ int target=7;
  vector<vector<int>> ans=getComb(v,target);
  for(vector<int> i:ans){
     if(i.size()==0){

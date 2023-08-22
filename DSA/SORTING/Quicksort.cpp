@@ -6,13 +6,12 @@
     int j=high;
    while(i<=j){
     
-      while(arr[i]<=pivot)
+      while(arr[i]<=pivot&&i<=high-1)
       i++;
-      while(arr[j]>pivot)
+      while(arr[j]>pivot&&j>=low+1)
       j--;
    
-      if(i>j)
-      break;
+      if(i<j)
       swap(arr[i],arr[j]);
     }
     swap(arr[low],arr[j]);
@@ -27,9 +26,9 @@ void quickSort(int arr[],int low,int high){
 }
 
  int main(){
- int arr[10]={5,2,2,4,1,7,1,0,8};
- quickSort(arr,0,8);
- for(int i=0;i<9;i++){
+ int arr[10]={1,4,3,2,1};
+ quickSort(arr,0,4);
+ for(int i=0;i<5;i++){
     cout<<arr[i]<<" ";
  }
  return 0;
