@@ -20,25 +20,26 @@ void solve(vector<vector<int>> room,int r,int c,vector<vector<int>> &visited,int
    
     
     if(isSafe(room,r+1,c,visited,n)){
-       str+="D";
-       solve(room,r+1,c,visited,count,n,str);
+       //str+="D";
+       solve(room,r+1,c,visited,count,n,str+="D");
     }
     
      if(isSafe(room,r,c+1,visited,n )){
-        str+="R";
-       solve(room,r,c+1,visited,count,n,str);
+        // str+="R";
+       solve(room,r,c+1,visited,count,n, str+="R");
     }
     
      if(isSafe(room,r-1,c,visited,n )){
-         str+="U";
-       solve(room,r-1,c,visited,count,n,str);
+        //  str+="U";
+       solve(room,r-1,c,visited,count,n,str+="U");
     }
     
      if(isSafe(room,r,c-1,visited,n)){
-         str+="L";
-       solve(room,r,c-1,visited,count,n,str);
+        //  str+="L";
+       solve(room,r,c-1,visited,count,n, str+="L");
     }
     visited[r][c]=0;
+  //  str.pop_back();
     
 }
 int getPath(vector<vector<int>> room,int n){
