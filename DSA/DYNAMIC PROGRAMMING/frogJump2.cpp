@@ -131,9 +131,21 @@ int main(){
  //10, 20, 10 k=1
  //10,20,30,10 k=2;
 
- 
+ int n=stone.size();
+ vector<int>dp(n,0);
+ dp[0]=0;
+ int k=2;
+ int i;
+ for( i=1;i<n;i++){
+    int minEnergy=INT_MAX;
+    for(int j=1;j<=k;j++){
+        if(i-j>=0)
+        minEnergy=dp[i-j]+abs(stone[i]-stone[j]);
+    }
+    dp[i]=minEnergy;
+ }
 
- cout<<minEnergy(stone,2);
+ cout<<dp[i-1];
  return 0;
 }
 

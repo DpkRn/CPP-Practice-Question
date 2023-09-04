@@ -22,8 +22,8 @@ vector<vector<int>> getComb(vector<int> arr,int target){
 }
 
  int main(){
- vector<int> v={2,3,5};
- int target=7;
+ vector<int> v={1,1,2};
+ int target=3;
  vector<vector<int>> ans=getComb(v,target);
  for(vector<int> i:ans){
     if(i.size()==0){

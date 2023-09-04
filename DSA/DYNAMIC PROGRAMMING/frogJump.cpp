@@ -22,7 +22,9 @@ int getNextEnergy(vector<int> &heights,int n){
  return 0;
  }*/
 
-//tabulization form
+/*tabulization form
+
+
 #include<bits/stdc++.h>
  using namespace std;
  int main(){
@@ -43,4 +45,36 @@ int getNextEnergy(vector<int> &heights,int n){
  cout<< "minimum energy:"<<dp[ind-1];
  return 0;
  }
+time complexity O(N)
+space complexity((N)
 
+ */
+
+
+//tabulization with minimum space complexity
+//time complexity O(N)
+//space complexityO(1)
+#include<bits/stdc++.h>
+ using namespace std;
+ int main(){
+ vector<int> heights={10,20,30,10};
+ int n=heights.size();
+ int firstPrev=0;
+ int secondPrev=0;
+ int curr;
+ int ind;
+ for( ind=1;ind<n;ind++){
+    int fs=firstPrev+abs(heights[ind]-heights[ind-1]);
+    int ss=INT_MAX;
+    if(ss>1)
+    ss=secondPrev+abs(heights[ind]-heights[ind-2]);
+   curr=min(fs,ss);
+   firstPrev=secondPrev;
+ secondPrev=curr;
+
+ }
+ 
+ 
+ cout<< "minimum energy:"<<curr;
+ return 0;
+ }
