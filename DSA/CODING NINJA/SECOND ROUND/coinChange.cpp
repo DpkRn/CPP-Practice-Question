@@ -16,7 +16,8 @@ Sample Input 1 :
 4
 Sample Output : 4
 */
-
+#include<bits/stdc++.h>
+using namespace std;
 
 int solve(int arr[],int n,int value,int ind){
    if(value==0) return 1;
@@ -32,5 +33,12 @@ int countWaysToMakeChange(int denominations[], int numDenominations, int value){
 
  return solve(denominations,numDenominations,value,0);
   
+
+}
+int main(){
+   int denominations[3]={1,2,3};
+   int numDenominations=3;
+   int value=4;
+   cout<<countWaysToMakeChange(denominations,numDenominations,value);
 
 }
