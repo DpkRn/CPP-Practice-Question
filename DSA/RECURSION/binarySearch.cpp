@@ -16,7 +16,7 @@ bool isAvailable(int arr[],int n,int start,int end){
      
     }
 
-
+//its binary search
 int main() {
    
   int arr[]={2,4,6,9,11,13};
