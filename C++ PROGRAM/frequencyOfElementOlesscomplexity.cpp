@@ -2,6 +2,9 @@
  using namespace std;
  vector<int> freq(vector<int> arr){
     int n=arr.size();
+
+    //if 1<arr[i]<=N
+    //substract 1 from each element
     for(int i=0;i<n;i++){
         int val=arr[i]%n;
         arr[val]=arr[val]+n;
@@ -17,6 +20,7 @@
     //0<arr[i]<N
  vector<int> arr={2,3,3,4,2};
 int n=arr.size();
+
  vector<int> f=freq(arr);
  for(int i=0;i<n;i++){
    if(f[i]>1)
