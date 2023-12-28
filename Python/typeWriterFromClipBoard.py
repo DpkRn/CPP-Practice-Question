@@ -6,7 +6,8 @@ time.sleep(2)
 while(rb.confirm('This displays text and has an OK and Cancel button.')=='Cancel'):
     time.sleep(5)
 rb.write(msg)
-rb.press("enter")
+#rb.press("enter")
+print("pasted successfully !")
 time.sleep(1)
 
 

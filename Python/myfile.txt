@@ -1,2 +1,18 @@
-hi its me
- line1
+int singleNonDuplicate(vector<int>& arr)
+{
+	// Write your code here
+	int n=arr.size();
+	int l=0;int h=n-1;
+	//if(n==1||arr[m]) 
+	while(l<=h){
+		int m=(l+h)/2;
+		if(arr[m]!=arr[m-1]&&arr[m]!=arr[m+1]) return arr[m];
+		if(m%2==0&&arr[m]==arr[m+1]){
+			l=m+1;
+		}
+		else{
+			h=m-1;
+		}
+	}
+	return 0;
+}
