@@ -1,1 +1,1 @@
- node=node->next;
+int lstd=n%10;

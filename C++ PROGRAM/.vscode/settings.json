@@ -2,5 +2,8 @@
     "code-runner.clearPreviousOutput": false,
     "C_Cpp.errorSquiggles": "disabled",
     "editor.fastScrollSensitivity": 1,
-    "editor.hover.delay": 100
+    "editor.hover.delay": 100,
+    "files.associations": {
+        "cmath": "cpp"
+    }
 }
