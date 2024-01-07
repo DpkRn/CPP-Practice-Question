@@ -1,1 +1,1 @@
-cout<<str;
+void solve( int l,int r,int t,vector<int>&nums1,vector<int>&nums2,vector<int> &temp){
