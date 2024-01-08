@@ -1,41 +1,52 @@
- //ans should be in sorted order
-  #include<bits/stdc++.h>
- using namespace std;
-void solve( int l,int r,int t,vector<int>&nums1,vector<int>&nums2,vector<int> &temp){
-    if(l>=nums1.size()||r>=nums2.size()){
-         for(int x:temp)
-         cout<<x<<" ";
-         cout<<endl;
-      
-    return;
-    }
-    if(t==1){
-        if(l==0||(r!=-1&&nums1[l]>nums2[r])){
-        temp.push_back(nums1[l]);
-        solve(l,r+1,2,nums1,nums2,temp); 
-        temp.pop_back();
+#include <bits/stdc++.h>
+
+using namespace std;
+void solve(int i,int j,int flag,vector<int> &arr1,vector<int> &arr2,vector<int> &path,vector<vector<int>> &ans){
+   if(i>=arr2.size()||j>=arr2.size())
+   return;
+    if(flag==true){
+        if(!path.empty()){
+            ans.push_back(path);
         }
-        else 
-        solve(l+1,r,1,nums1,nums2,temp); 
-    }else{
-        if(nums2[r]>nums1[l]){
-        temp.push_back(nums2[r]);
-        solve(l+1,r,1,nums1,nums2,temp); 
-        temp.pop_back();}
-        else
-        solve(l,r+1,2,nums1,nums2,temp); 
+        if(path.empty()||arr1[i]>path.back())
+            {
+              path.push_back(arr1[i]);
+              solve(i+1,j,false,arr1,arr2,path,ans);
+             
+            }
+           
+            solve(i+1,j,true,arr1,arr2,path,ans);
     }
+    else
+        if(arr2[j]>path.back()){
+            path.push_back(arr2[j]);
+            solve(i,j+1,true,arr1,arr2,path,ans);
+           
+        }
+        
+        solve(i,j+1,false,arr1,arr2,path,ans);
+       
+    
 }
 
- int main(){
- vector<int> nums1={1,3,5};
- vector<int> nums2={2,3,4};
- 
- vector<int> temp;
- 
- solve(0,-1,1,nums1,nums2,temp);   
-    // for(int x:ans){
-    //     cout<<x<<endl;
-    // }  
- return 0;
- }
+int main()
+{
+    vector<int> arr1={10,15,25};
+    vector<int> arr2={1,5,20,30};
+    
+    vector<vector<int>> result;
+   
+   for(int i=0;i<arr1.size();i++){
+    vector<vector<int>> ans;
+     vector<int> path;
+    solve(i,0,true,arr1,arr2,path,ans);
+    result.insert(result.end(),ans.begin(),ans.end());
+   }
+    
+    for(auto row:result){
+        for(auto ele:row)
+            cout<<ele<<" ";
+            cout<<endl;
+        
+    }
+}
