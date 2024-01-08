@@ -12,7 +12,8 @@
  right sibling ->i+1
  
  */
-// Test Case: 60 50 40 30 20 55 70
+// Test Case 1: 60 50 40 30 20 55 70
+// Test Case 2: 50 55 53 52 54 
 // max heap complete binary tree  shuld be make like this
 /*
          70
@@ -20,11 +21,60 @@
      50    60
     / \    / \
  30   20 40   55 
-
+        ind    0  1  2  3  4  5  6  7
  stored array[]= 70 50 60 30 20 40 55
-
-*/
+ //lets i am standing at 60 node i.e 3rd index in array
+ parent node-> i/2 -> 3/2 -> 1th ind i.e 70 //check in binary tree
+ left child -> 2*i -> 2*3 -> 6th ind i.e 40 //check left child in binary tree
  
+*/
+//conclusion: we stored entered value in array in such a way so that without creating max heap binary tree we cann access the 
+//parent child etc.
+
+//structured code
+#include<bits/stdc++.h>
+using namespace std;
+class heap{
+    int arr[1000];
+    int lastInd;
+    public:
+    heap(){
+        arr[0]=INT_MAX;
+        lastInd=0;
+    }
+    void insert(int val){
+        lastInd++;
+        arr[lastInd]=val;
+        int parentInd=lastInd/2;
+        int ind=lastInd;
+        while(arr[parentInd]<arr[ind]){
+            swap(arr[parentInd],arr[ind]);
+            ind=parentInd;
+            parentInd/=2;
+        }
+    }
+    void print(){
+        for(int i=1;i<=lastInd;i++)
+        cout<<arr[i]<<" ";
+        cout<<endl;
+    }
+};
+
+int main(){
+    heap h;
+    h.insert(50);
+    h.insert(55);
+    h.insert(53);
+    h.insert(52);
+    h.insert(54);
+   
+    h.print();
+
+    return 0;
+}
+ 
+ /*
+ rough code....
  #include<bits/stdc++.h>
  using namespace std;
  void print(int arr[],int lastInd){
@@ -55,3 +105,4 @@
    }
  return 0;
  }
+ */
