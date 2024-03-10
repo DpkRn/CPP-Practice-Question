@@ -34,6 +34,7 @@ Approach: we can count prime no without counting divisors
            prime[j]=0;
         }
     }
+    //for(auto cnt:prime) cout<<cnt<<" "; //lets see which index i.e no is prime no means 1 value and which having not first 0 exclude
     int cnt=0;
     for(int i=1;i<=n;i++){
         if(prime[i]) cnt++;

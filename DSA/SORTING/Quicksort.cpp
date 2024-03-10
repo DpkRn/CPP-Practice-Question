@@ -1,7 +1,7 @@
  #include<bits/stdc++.h>
  using namespace std;
  int partArr(int arr[],int low,int high){
-    int pivot=arr[low];
+    int pivot=arr[low]; // 6 2 5 9 0
     int i=low;
     int j=high;
    while(i<=j){
