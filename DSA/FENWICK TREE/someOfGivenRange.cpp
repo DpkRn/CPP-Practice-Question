@@ -25,7 +25,7 @@ int rangeSum(int l,int r){
 
 int main(){
     int n;
-    cin>>n;
+cin>>n;
     
     for(int i=1;i<=n;i++){ //0 1 2 3 
         cin>>arr[i];

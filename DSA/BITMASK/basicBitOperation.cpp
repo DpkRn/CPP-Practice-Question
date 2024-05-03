@@ -32,9 +32,9 @@ reverse ith bit: xor used
                                             1^1 = 0 bits reversed
 xor upto N: 
 prequits: even no of bits gives 0, odd no of bits gives 1
-        0 : 0000 ----
-        1 : 0001    . 0
-        2 : 0010    .
+        0 : 0000 ---- 0
+        1 : 0001    . 1
+        2 : 0010    . 2
         3 : 0011 ----
 
         4 : 0100 ----
