@@ -29,7 +29,7 @@ Constraints:
 Approach:
 dp will take N*productOfAllNos
 so we will apply bitmask to find the subsets
-but that will take N*2^N complexity so we have to optimise 
+but that will take N*2^N complexity so we have to optimise because bruteforce using recursion will take 2^30 that is greater than 2^18
 we can devide in two part of array and we can find for each array subset whose product is less than K
 that will take N*2^N/2 and will store in two another container 
 so that we can find the another remaining subsets by multiplying 
@@ -38,7 +38,7 @@ for that we can sort one of the container so that we can get direct index by usi
 that will take logn
 so total time complextiy will be
 N/2*2^N/2*logN
-
+15*2^15*log(30) which is less than 2^18
 */
  
 
