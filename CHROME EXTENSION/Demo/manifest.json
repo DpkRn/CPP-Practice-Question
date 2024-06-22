@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Demo Extension",
+    "description": "Runs a script when the user clicks the action toolbar icon.",
+    "version": "1.0",
+    "author": "Dwizard",
+    "icons": {
+        "128": "logo.png"
+    },
+    "action": {
+        "default_icon": "logo.png",
+        "default_popup": "popup.html",
+        "default_title": "Demo Extension"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+
+            "js": [
+                "contentscript.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "tabs",
+        "context_menus"
+    ],
+    "host_permissions":["https://*"]
+}
