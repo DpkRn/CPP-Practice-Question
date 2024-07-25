@@ -21,6 +21,7 @@
             "js": [
                 "contentscript.js"
             ]
+            
         }
     ],
     "background": {
@@ -30,7 +31,10 @@
         "scripting",
         "activeTab",
         "tabs",
-        "context_menus"
+        "bookmarks"    
     ],
-    "host_permissions":["https://*"]
+    "host_permissions":[
+        "<all_urls>"
+    ]
+    
 }

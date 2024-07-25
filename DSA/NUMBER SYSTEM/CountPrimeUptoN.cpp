@@ -2,7 +2,7 @@
  using namespace std;
 
  //Brute force check each no 1 by one if its prime increase cnt by 1
-
+//O(N*\/N) time complexity
 //  bool isPrime(int n){
 //     for(int i=2;i*i<=n;i++){
 //         if(n%i==0) return 0;
@@ -25,10 +25,14 @@ Approach: we can count prime no without counting divisors
     then we dont need to check that 16 24 beacuse it will also be not prime.
     so will create a hash map that will update all of the next so that we will avoid to iterate after words
 */
+
+//O(NloglogN) time complexity //when i=2 it is taking roughly n/2 means upperbounds n times and this will run for each
+// prime no and there is proof that no of primes less than n is loglogn
+//-------Sieve of Eratosthenes-----------------
  int CountPrimeUptoN(int n){
     vector<int> prime(n+1,1); //lets say all are prime.. and i will check only prime values to update next
     prime[1]=0; // 1 is not prime
-    for(int i=2;i<=n;i++){
+    for(int i=2;i*i<=n;i++){
         if(!prime[i]) continue;
         for(int j=i*i/*i*2*/;j<=n;j+=i){
            prime[j]=0;
@@ -42,6 +46,6 @@ Approach: we can count prime no without counting divisors
     return cnt;
  }
  int main(){
-    cout<<CountPrimeUptoN(100);
+    cout<<CountPrimeUptoN(1000);
  return 0;
  }

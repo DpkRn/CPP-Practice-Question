@@ -19,12 +19,12 @@ class disjoint{
     }
    
     void merge(int u,int v){
-        int ulp=find(u);
-        int vlp=find(v);
-        if(ulp==vlp) return;
-        if(ds[ulp]<ds[vlp]) swap(ulp,vlp);
-        p[vlp]=ulp;
-        ds[ulp]+=ds[vlp];    
+        u=find(u);
+        v=find(v);
+        if(u==v) return;
+        if(ds[u]<ds[v]) swap(u,v);
+        p[v]=u;
+        ds[u]+=ds[v];    
     }
 };
 int main(){

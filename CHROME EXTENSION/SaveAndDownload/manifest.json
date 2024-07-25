@@ -1,0 +1,13 @@
+﻿{
+  "name": "Save and open file",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "learn to save or open file by this code",
+  "action": {
+    "default_title": "save or open",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "logo.png"
+    }
+  }
+}

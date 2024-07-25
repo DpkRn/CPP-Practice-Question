@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Bookmark Saver",
+    "description": "When you bookmark any link it will save this file to your computer with decription and link !",
+    "version": "1.0",
+    "author": "Dwizard",
+    "icons": {
+        "128": "bookmark.png"
+    },
+    "action": {
+        "default_icon": "bookmark.png",
+        "default_popup": "popup.html",
+        "default_title": "Bookmark Saver"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+
+            "js": [
+                "contentscript.js"
+            ]
+            
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "bookmarks"    
+    ],
+    "host_permissions":[
+        "<all_urls>"
+    ]
+    
+}

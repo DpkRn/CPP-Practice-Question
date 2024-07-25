@@ -1,21 +1,15 @@
  #include<bits/stdc++.h>
  using namespace std;
  int partArr(int arr[],int low,int high){
-    int pivot=arr[low]; // 6 2 5 9 0
-    int i=low;
-    int j=high;
-   while(i<=j){
-    
-      while(arr[i]<=pivot&&i<=high-1)
-      i++;
-      while(arr[j]>pivot&&j>=low+1)
-      j--;
-   
-      if(i<j)
-      swap(arr[i],arr[j]);
-    }
-    swap(arr[low],arr[j]);
-    return j;
+    int pivot=arr[high];
+       int i=low;
+       for(int j=low;j<high;j++){
+           if(arr[j]<pivot){
+               swap(arr[i++],arr[j]);
+           }
+       }
+       swap(arr[i],arr[high]);
+       return i;
  }
 void quickSort(int arr[],int low,int high){
     if(low>=high)

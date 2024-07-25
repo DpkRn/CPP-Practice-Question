@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "GitHub Repo Fetcher",
+    "description": "Fetch all repositories from GitHub",
+    "version": "1.0",
+    "permissions": [
+      "identity",
+      "https://api.github.com/"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "oauth2": {
+      "client_id": "YOUR_GITHUB_CLIENT_ID",
+      "scopes": [
+        "repo"
+      ]
+    }
+  }
+  

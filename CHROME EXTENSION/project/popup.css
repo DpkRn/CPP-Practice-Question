@@ -1,0 +1,23 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: beige;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="date"], button {
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            background-color: rebeccapurple;
+            margin-top: 10px;
+        }
+  

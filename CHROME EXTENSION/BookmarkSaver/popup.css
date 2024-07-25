@@ -1,0 +1,9 @@
+body{
+    height: 100px;
+    width: 100px;
+    background-color: antiquewhite;
+}
+div{
+    margin: 10px;
+    border-radius: 10px;
+}
